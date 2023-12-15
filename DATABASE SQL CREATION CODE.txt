@@ -1,0 +1,31 @@
+
+
+-- Create the database
+CREATE DATABASE IF NOT EXISTS laravel_inventory;
+USE laravel_inventory;
+
+-- Create 'categories' table
+CREATE TABLE `categories` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL UNIQUE,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Create 'items' table
+CREATE TABLE `items` (
+  `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` text NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  `quantity` int(10) UNSIGNED NOT NULL,
+  `sku` varchar(100) NOT NULL UNIQUE,
+  `picture` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`category_id`) REFERENCES `categories` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
