@@ -14,7 +14,7 @@
             <tbody>
                 @foreach ($categories as $category)
                     <tr>
-                        <td>{{ $category->category_name }}</td>
+                        <td>{{ $category->name }}</td>
                         <td>
                             <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-sm">Edit</a>
                             <form action="{{ route('categories.destroy', $category->id) }}" method="POST" class="d-inline">

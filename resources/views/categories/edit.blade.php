@@ -8,9 +8,9 @@
             @method('PATCH')
 
             <div class="form-group">
-                <label for="category_name">Category Name:</label>
-                <input type="text" name="category_name" id="category_name" class="form-control" value="{{ old('category_name', $category->category_name) }}">
-                @error('category_name')
+                <label for="name">Category Name:</label>
+                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $category->name) }}">
+                @error('name')
                     <div class="text-danger">{{ $message }}</div>
                 @enderror
             </div>

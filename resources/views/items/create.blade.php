@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Create Item</h1>
-        <form action="{{ route('items.create') }}" method="PUT" enctype="multipart/form-data">
+        <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
@@ -11,7 +11,7 @@
                 <select name="category_id" id="category_id" class="form-control">
                     <option value="">Select a category</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
                     @endforeach
                 </select>
                 @error('category_id')

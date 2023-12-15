@@ -18,7 +18,7 @@
             <tbody>
                 @foreach ($items as $item)
                     <tr>
-                        <td>{{ $item->category->category_name }}</td>
+                        <td>{{ $item->category->name }}</td>
                         <td>{{ $item->title }}</td>
                         <td>{{ $item->description }}</td>
                         <td>${{ $item->price }}</td>
