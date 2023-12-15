@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Create Item</h1>
-        <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('items.create') }}" method="PUT" enctype="multipart/form-data">
             @csrf
 
             <div class="form-group">
